@@ -13,7 +13,7 @@ void ofApp::setup(){
 
   connected = sender.setup(HOST, PORT);
 
-  ofSetFrameRate(12);
+  ofSetFrameRate(18);
 }
 
 //--------------------------------------------------------------
@@ -26,22 +26,21 @@ void ofApp::draw(){
   for(auto &s : sensors_) {
     s->update();
 
-    string serial = s->getSerialNumber();
+    if (connected && sending) {
+      string serial = s->getSerialNumber();
 
-    auto data = s->getResult();
-    for(auto &d : data) {
-      if(d.quality > 0) {
-        if (connected && sending) {
-          ofxOscMessage message;
-          message.setAddress("/lidar");
-          message.addStringArg(serial);
+      ofxOscMessage message;
+      message.setAddress("/lidar");
+      message.addStringArg(serial);
 
+      auto data = s->getResult();
+      for(auto &d : data) {
+        if(d.quality > 0) {
           message.addFloatArg(d.distance);
           message.addFloatArg(d.angle);
-
-          sender.sendMessage(message);
         }
       }
+      sender.sendMessage(message);
     }
   }
 
