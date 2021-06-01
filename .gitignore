@@ -1,0 +1,63 @@
+##OF builds
+#builds
+build/
+obj/
+*.o
+*.app
+*/x64/
+bin/*.dll
+bin/dlt-door.*
+bin/dlt-door_debug.*
+
+## heavy data files
+# medias
+bin/data/medias/**
+!bin/data/medias/.gitkeep
+!bin/data/medias/index.json
+# sounds
+bin/data/sounds/**
+!bin/data/sounds/index.json
+!bin/data/sounds/.gitkeep
+
+### Xcode ###
+# Xcode
+
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.exp
+*.lib
+*.pdb
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+node_modules/**
+
+## OSX
+.DS_Store
+
+*.zip
+*.tar.gz
+
+dlt-door.VC.VC.opendb
+dlt-door.VC.db
+.vs/dlt-door/v14/.suo
+._*
+.vs/dlt-door/v14/.suo
+
+dlt-door-release/**
+*.swp
