@@ -13,7 +13,7 @@ void ofApp::setup(){
 
   connected = sender.setup(HOST, PORT);
 
-  ofSetFrameRate(18);
+  ofSetFrameRate(5);
 }
 
 //--------------------------------------------------------------
@@ -49,8 +49,9 @@ void ofApp::draw(){
   buf += "\ncurrently ";
   buf += connected ? "connected" : "not connected";
   buf += "\nrunning at " + ofToString((int) ofGetFrameRate()) + " fps";
-  buf += "\npress S to set sending ";
-  buf += sending ? "OFF" : "ON";
+  buf += "\npsending is ";
+  buf += sending ? "ON" : "OFF";
+  buf += " (S to switch)";
   ofDrawBitmapStringHighlight(buf, 10, 20);
 }
 
