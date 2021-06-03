@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxRPlidar.h"
 #include "ofxOsc.h"
+#include "ofxGui.h"
 
 #define PORT 41234
 #define HOST "127.0.0.1"
@@ -12,10 +13,17 @@ private:
   std::vector<std::shared_ptr<ofxRPlidar>> sensors_;
   ofxOscSender sender;
 
-  bool sending = true;
-  bool connected = false;
-
 public:
+  ofxIntSlider freq;
+  ofxToggle sending;
+  ofxButton resetSensorsBtn;
+  ofxPanel gui;
+
+  int numSensors;
+
+  void connectSensors();
+  void resetSensors();
+
   void setup();
   void update();
   void draw();
