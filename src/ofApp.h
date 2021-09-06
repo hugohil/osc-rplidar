@@ -15,6 +15,7 @@ private:
 
 public:
   ofxIntSlider freq;
+  ofxIntSlider scanMode;
   ofxToggle sending;
   ofxButton resetSensorsBtn;
   ofxPanel gui;

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<group>
+	<send_once_every_x_frame>12</send_once_every_x_frame>
+	<scan_mode>1</scan_mode>
+	<send>1</send>
+</group>

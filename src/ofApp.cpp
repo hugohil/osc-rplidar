@@ -10,6 +10,7 @@ void ofApp::setup(){
 
   gui.setup();
   gui.add(freq.setup("send once every x frame", 12, 1, 120));
+  gui.add(scanMode.setup("scan mode", 0, 0, 4));
   gui.add(resetSensorsBtn.setup("reset sensors"));
   gui.add(sending.setup("send", true));
 }
@@ -20,6 +21,7 @@ void ofApp::connectSensors(){
   for(auto &sensor_info : sensor_list) {
     auto sensor = make_shared<ofxRPlidar>();
     if(sensor->connect(sensor_info.getDevicePath())) {
+      sensor->setScanMode((int) scanMode);
       sensor->start();
       sensors_.push_back(sensor);
     }
