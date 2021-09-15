@@ -8,6 +8,8 @@ obj/
 bin/*.dll
 bin/dlt-door.*
 bin/dlt-door_debug.*
+libfmod.so
+bin/osc-rplidar
 
 ## heavy data files
 # medias

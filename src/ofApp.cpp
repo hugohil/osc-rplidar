@@ -2,8 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-  this->connectSensors();
-
   sender.setup(HOST, PORT);
 
   resetSensorsBtn.addListener(this, &ofApp::resetSensors);
@@ -14,6 +12,8 @@ void ofApp::setup(){
   gui.add(useScanModes.setup("use scan modes", false));
   gui.add(resetSensorsBtn.setup("reset sensors"));
   gui.add(sending.setup("send", true));
+
+  this->connectSensors();
 }
 
 //--------------------------------------------------------------
@@ -23,7 +23,7 @@ void ofApp::connectSensors(){
     auto sensor = make_shared<ofxRPlidar>();
     if(sensor->connect(sensor_info.getDevicePath())) {
       if (useScanModes) {
-        sensor->setScanMode((int) scanMode);
+        // sensor->setScanMode((int) scanMode);
       }
       sensor->start();
       sensors_.push_back(sensor);
